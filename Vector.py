@@ -41,6 +41,34 @@ class Vector:
 
         return Vector(self.x - other.x, self.y - other.y, self.z - other.z)
 
+    def __mul__(self, other: int | float):
+        """
+        Multiplies this vector by a scalar.
+
+        :param other: The scalar value to multiply this vector by.
+        :return: A new Vector representing the result of the multiplication.
+        """
+
+        return Vector(
+            self.x * other,
+            self.y * other,
+            self.z * other
+        )
+
+    def __truediv__(self, other: int | float):
+        """
+        Divides this vector by a scalar.
+
+        :param other: The scalar value to divide this vector by.
+        :return: A new Vector representing the result of the division.
+        """
+
+        return Vector(
+            self.x / other,
+            self.y / other,
+            self.z / other
+        )
+
     def __eq__(self, other: 'Vector'):
         """
         Checks if this vector is equal to another vector.
@@ -68,6 +96,27 @@ class Vector:
         """
 
         return f"Vector({self.x}, {self.y}, {self.z})"
+
+    def create_copy(self) -> 'Vector':
+        """
+        Creates and returns a new Vector instance with the same x, y, and z components as this vector.
+
+        :return: A new Vector instance with the same x, y, and z components as this vector.
+        """
+
+        return Vector(self.x, self.y, self.z)
+
+    def copy_from(self, other: 'Vector') -> None:
+        """
+        Copies the x, y, and z components of the specified Vector instance to this Vector instance.
+
+        :param other: The Vector instance to copy the components from.
+        :return: None
+        """
+
+        self.x = other.x
+        self.y = other.y
+        self.z = other.z
 
     def get_magnitude(self) -> float:
         """
