@@ -22,13 +22,52 @@ class Vector:
         self.z = z
 
     def __add__(self, other: 'Vector'):
+        """
+        Adds this vector to another vector.
+
+        :param other: The other vector to add to this vector.
+        :return: A new Vector representing the sum of the two vectors.
+        """
+
         return Vector(self.x + other.x, self.y + other.y, self.z + other.z)
 
     def __sub__(self, other: 'Vector'):
+        """
+        Subtracts another vector from this vector.
+
+        :param other: The other vector to subtract from this vector.
+        :return: A new Vector representing the difference of the two vectors.
+        """
+
         return Vector(self.x - other.x, self.y - other.y, self.z - other.z)
 
     def __eq__(self, other: 'Vector'):
+        """
+        Checks if this vector is equal to another vector.
+
+        :param other: The other vector to compare to this vector.
+        :return: True if the two vectors are equal, False otherwise.
+        """
+
         return self.x == other.x and self.y == other.y and self.z == other.z
+
+    def __str__(self) -> str:
+        """
+        Returns a string representation of this vector.
+
+        :return: A string representation of this vector in the format "(x, y, z)".
+        """
+
+        return f"({self.x}, {self.y}, {self.z})"
+
+    def __repr__(self) -> str:
+        """
+        Returns a string representation of this vector that can be used to recreate it.
+
+        :return: A string representation of this vector in the format "Vector(x, y, z)".
+        """
+
+        return f"Vector({self.x}, {self.y}, {self.z})"
 
     def get_magnitude(self) -> float:
         """
